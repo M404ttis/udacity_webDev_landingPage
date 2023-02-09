@@ -46,14 +46,16 @@ function makeActive(){
         //Find a value that works best, but 150 seems to be a good start.
         if (box.top <= 120 && box.bottom >= 121) {
             //apply active state on current section and corresponding Nav link
-            section.classList.add('your-active-class');
+            section.classList.add('active-viewport');
             // console.log(section);
-            navBar.querySelector(`${section.dataset.nav}`).classList.add('your-active-class');
-            console.log(navBar.getElementsByClassName(`${section.dataset.nav}`));
-            // .classList.add('your-active-class');
+            navBar.querySelector(`[id="nav_${section.id}"]`).classList.add('active-viewport');;
+            // navBar.querySelector(`${section.dataset.nav}`).classList.add('active-viewport');
+            // console.log(navBar.getElementsByClassName(`${section.dataset.nav}`));
+            // .classList.add('active-viewport');
         } else {
             //Remove active state from other section and corresponding Nav link
-            section.classList.remove('your-active-class');
+            section.classList.remove('active-viewport');
+            navBar.querySelector(`[id="nav_${section.id}"]`).classList.remove('active-viewport');;
         }
     }
 }
@@ -65,12 +67,13 @@ function makeActive(){
  * 
 */
 
-// build the nav
+// build the nav dynamically with regards to performance
 const buildNavBar = () => {
     const navBarFragement = document.createDocumentFragment();
 
     for (const section of sections) {
         const navItem = document.createElement('li');
+        // adds navID on basis of sectionID so we can query it later to add active class
         navItem.innerHTML = `<a class="menu__link" id="nav_${section.id}">${section.dataset.nav}</a>`;
         addNavEventListener(navItem);
         navBarFragement.appendChild(navItem);
