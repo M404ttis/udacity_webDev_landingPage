@@ -39,23 +39,20 @@ const addNavEventListener = (navItem) => {
     });
 }
 
-// Add class 'active' to section when near top of viewport 
+
+// Add class 'active-viewport' to section and nav when current section is near top of viewport 
 function makeActive(){
     for (const section of sections) {
         const box = section.getBoundingClientRect();
-        //Find a value that works best, but 150 seems to be a good start.
+        // check if section is in viewport and 
         if (box.top <= 120 && box.bottom >= 121) {
             //apply active state on current section and corresponding Nav link
             section.classList.add('active-viewport');
-            // console.log(section);
-            navBar.querySelector(`[id="nav_${section.id}"]`).classList.add('active-viewport');;
-            // navBar.querySelector(`${section.dataset.nav}`).classList.add('active-viewport');
-            // console.log(navBar.getElementsByClassName(`${section.dataset.nav}`));
-            // .classList.add('active-viewport');
+            navBar.querySelector(`[id="nav_${section.id}"]`).classList.add('active-viewport');
         } else {
             //Remove active state from other section and corresponding Nav link
             section.classList.remove('active-viewport');
-            navBar.querySelector(`[id="nav_${section.id}"]`).classList.remove('active-viewport');;
+            navBar.querySelector(`[id="nav_${section.id}"]`).classList.remove('active-viewport');
         }
     }
 }
@@ -67,7 +64,7 @@ function makeActive(){
  * 
 */
 
-// build the nav dynamically with regards to performance
+// build nav dynamically with regards to performance
 const buildNavBar = () => {
     const navBarFragement = document.createDocumentFragment();
 
@@ -82,11 +79,6 @@ const buildNavBar = () => {
 }
 
 
-
-
-
-
-
 /**
  * End Main Functions
  * Begin Events
@@ -95,8 +87,6 @@ const buildNavBar = () => {
 
 // Build menu 
 document.addEventListener('DOMCOntentLoaded', buildNavBar());
-
-// Scroll to section on link click
 
 // Set sections as active
 document.addEventListener("scroll", function() { makeActive();});
