@@ -1,13 +1,5 @@
 # Landing Page Project
 
-## Table of Contents
+This project is the seccond part of a web degree by the company "Udacity", specifically its "nanodegree program in WebDevelopment".
 
-* [Instructions](#instructions)
-
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+The task at hand was to programmatially add a navigation bar to a given website (cloned project). The use case is a Website, that e.g. asynchronously gets its content while still in need to build an accurate navigation. In order to guarantee performance, measures such as creating document fragments are used. Styles have been deemed not so important.
